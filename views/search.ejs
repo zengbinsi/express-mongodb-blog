@@ -1,0 +1,13 @@
+<%- include header %>
+<ul class="archive">
+    <% var lastYear = 0 %>
+    <% blogs.forEach(function (blog, index) { %>
+        <% if (lastYear !== blog.time.year) { %>
+            <li><h3><%= blog.time.year %></h3></li>
+            <% var lastYear = blog.time.year %>
+        <% } %>
+        <li><time><%= blog.time.day %></time></li>
+        <li><a href="/u/<%= blog.name %>/<%= blog.time.day %>/<%= blog.title %>"><%= blog.title %></a></li>
+    <% }) %>
+</ul>
+<%- include footer %>

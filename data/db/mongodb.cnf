@@ -1,0 +1,5 @@
+dbpath=/Users/zengbinsi/Documents/02_zengbinsi/blog/data/db/
+logpath=/Users/zengbinsi/Documents/02_zengbinsi/blog/data/db/mongo.log
+logappend=true
+fork=true
+port=27017

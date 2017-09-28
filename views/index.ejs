@@ -1,0 +1,21 @@
+<% include header %>
+	<% blogs.forEach(function (blog, index) { %>
+		<p>
+			<h2><a href="/u/<%= blog.name %>/<%= blog.time.day %>/<%= blog.title %>"><%= blog.title %></a></h2>
+			<a href="/u/<%= blog.name %>"><img src="<%= blog.head %>" class="r_head" /></a>
+		</p>
+		<p class="info">
+			作者：<a href="#"><%= blog.name %></a>
+			日期：<%= blog.time.minute %>
+			标签：
+			<% blog.tags.forEach(function (tag, index) { %>
+				<% if (tag) { %>
+					<a class="tag" href="/tags/<%= tag %>"><%= tag %></a>
+				<% } %>
+			<% }) %>
+		</p>
+		<p><%- blog.blog.substr(0, 100) %></p>
+		<p class="info">阅读：<%= blog.pv %> | 评论：<%= blog.comments.length %></p>
+		<hr/>
+	<% }) %>
+<% include footer %>

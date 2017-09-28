@@ -1,0 +1,32 @@
+<% if (blog.comments.length > 0) { %>
+    <br/>
+    <p>【评论区】</p>
+    <hr/>
+    <% blog.comments.forEach(function (comment, index) { %>
+        <p>
+            <img src="<%= comment.head %>" class="l_head"/>
+            <a href="<%= comment.website %>"><%= comment.name %></a>
+            <span class="info">回复于 <%= comment.time%> </span>
+        </p>
+        <p><%- comment.content %></p>
+        <hr/>
+    <% }) %>
+<% } %>
+
+<br/>
+<p>【评论】</p>
+<hr/>
+<form method="post">
+    <% if (user) { %>
+        姓名： <input type="text" name="name" value="<%= user.name %>" /><br/>
+        邮箱： <input type="text" name="email" value="<%= user.email %>" /><br/>
+        网址： <input type="text" name="website" value="/u/<%= user.name %>" /><br/>
+    <% } else { %>
+        姓名： <input type="text" name="name" value="name" /><br/>
+        邮箱： <input type="text" name="email" value="email" /><br/>
+        网址： <input type="text" name="website" value="http://" /><br/>
+    <% } %>
+    <textarea name="content" cols="80" rows="5"></textarea><br/>
+    <input type="submit" value="留言"/>
+</form>
+    

@@ -1,0 +1,15 @@
+<%- include header %>
+    <% if (user && (user.name === blog.name)) {%>
+        <p>
+            <span><a class="edit" href="/u/edit/<%= blog.name %>/<%= blog.time.day %>/<%= blog.title %>">编辑</a></span>
+            <span><a class="edit" href="/u/remove/<%= blog.name %>/<%= blog.time.day %>/<%= blog.title %>">删除</a></span>
+        </p>
+    <% } %>
+
+    <p class="info">
+        作者：<a href="/u/<%= blog.name %>"><%= blog.name %></a> | 
+        日期：<%= blog.time.minute %>
+    </p>
+    <p><%- blog.blog %></p>
+    <%- include comment %>
+<%- include footer %>

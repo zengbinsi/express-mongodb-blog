@@ -1,0 +1,13 @@
+<%- include header %>
+<% blogs.forEach(function (blog, index) { %>
+    <p>
+        <h2><a href="/u/<%= blog.name %>/<%= blog.time.day %>/<%= blog.title %>"><%= blog.title %></a></h2>
+        <a href="/u/<%= blog.name %>"><img src="<%= blog.head %>" class="r_head" /></a>
+    </p>
+    <p class="info">
+        作者：<a href="/u/<%= blog.name %>"><%= blog.name %></a> | 
+        日期：<%= blog.time.minute %>
+    </p>
+    <p><%- blog.blog %></p>
+<% }) %>
+<%- include footer %>
